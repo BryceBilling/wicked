@@ -143,7 +143,7 @@ app.post("/api/all-crimes-reference", (req, res) => {
   const sql = `select id, distinct(THF_Reference), Date, CR_Number,DR_Number,RRB_Number,Station,Other_Personnel,Anomily, 
   Province, International, Image, Crime_Type, THF_Case_Flag, MAPP_Case_Flag,Zambesi_Society_Case_Flag,DAPU_Case_Flag,MFFU_Case_Flag, 
   Exhibit_Details,Qnty,Weight,Location,Investigation_Officer,Investigation_Officer_Cell 
-  from crimes_reference_view limit ${req.body.start}, ${req.body.end} where THF_Reference IS NOT NULL and id IS NOT NULL`;
+  from crimes_reference_view where THF_Reference IS NOT NULL and id IS NOT NULL`;
 
   pool.query(sql, (err, rows) => {
     if (err) {
