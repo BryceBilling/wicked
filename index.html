@@ -3,10 +3,13 @@
   <head>
 
     <!-- 👇 Change the details below 👇 -->
-    <title>PWA-Vite-React-Boilerplate</title>
-    <meta name="description" content="PWA-Vite-React-Boilerplate">
-    <meta name="author" content="Meng Lin (MengLinMaker)">
+    <title>WICKED</title>
+    <meta name="description" content="WICKED">
+    <meta name="author" content="Bryce Billing">
     <meta charset="UTF-8" content="#ffffff" />
+    <link href="/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
+    <link href="/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- 👆 Change the details above 👆 -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +22,14 @@
   <body>
 
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      import RefreshRuntime from "http://localhost:3001/@react-refresh";
+      RefreshRuntime.injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+      window.__vite_plugin_react_preamble_installed__ = true;
+    </script>
+    <script type="module" src="http://localhost:3001/src/main.jsx"></script>
 
   </body>
 </html>
